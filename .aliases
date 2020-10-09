@@ -5,6 +5,7 @@ alias dme="eval $(docker-machine env default)"
 alias dmc="docker-machine create -d virtualbox --virtualbox-memory 4096 default"
 
 # popular directories
+alias d="cd ~/dotfiles"
 alias pl="cd $DEV/playground"
 alias h="cd $DEV/projects/huuuge"
 alias hg="cd $DEV/projects/huuuge/gamebingo"
@@ -24,6 +25,9 @@ alias zc="$EDITOR ~/.zshrc"
 alias vc="$EDITOR ~/.vimrc"
 alias tc="$EDITOR ~/.tmux.conf"
 alias gc="$EDITOR ~/.gitconfig"
+alias ac="$EDITOR ~/.aliases"
+
+alias zs="source ~/.zshrc"
 
 # server
 alias dcd="docker-compose -f nix-nakama-vs-postgres-ssl.yml down -v"
