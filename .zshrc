@@ -120,7 +120,6 @@ export ANDROID_NDK_ROOT=$HOME/Library/Android/sdk/ndk
 export ANDROID_NDK_HOME=$ANDROID_NDK_ROOT
 export PATH="/usr/local/opt/python@3.8/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/python@3.8/lib"
-export PATH="$HOME/.cargo/bin:$PATH"
 
 export PATH="/usr/local/opt/binutils/bin:$PATH"
 export PATH="$HOME/.nimble/bin:$PATH"
@@ -134,5 +133,4 @@ export BINGO_CLIENT_HOME=$HOME/dev/projects/huuuge/gamebingo
 # to enable nice colors in tmux
 export TERM=xterm-256color
 
-source $HOME/.aliases
-#[[ -f $HOME/.aliases ]] && source $HOME/.aliases
+[[ -f $HOME/.aliases ]] && source $HOME/.aliases
