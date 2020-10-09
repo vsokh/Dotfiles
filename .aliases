@@ -1,10 +1,8 @@
-#!/usr/bin/env zsh
-
 alias todo="$EDITOR ~/.todo"
 
 ## docker
-alias env-docker="eval $(docker-machine env default)"
-alias boot-docker="docker-machine create -d virtualbox --virtualbox-memory 4096 default"
+alias dme="eval $(docker-machine env default)"
+alias dmc="docker-machine create -d virtualbox --virtualbox-memory 4096 default"
 
 # popular directories
 alias pl="cd $DEV/playground"
@@ -14,38 +12,28 @@ alias hs="cd $DEV/projects/huuuge/serverbingo"
 
 # popular programs
 alias log-nim="adb logcat -s NIM_APP"
+
 alias g="git"
 alias v="vim"
+alias t="tmux"
 
 alias np="cd ~/.nimble/pkgs"
 alias nb="cd ~/.nimble/bin"
 
-# zprofile
-alias vze="vim ~/.zprofile"
-alias cze="cat ~/.zprofile"
-alias sze="source ~/.zprofile"
-
-alias vzc="vim ~/.zshrc"
-alias vvc="vim ~/.vimrc"
+alias zc="$EDITOR ~/.zshrc"
+alias vc="$EDITOR ~/.vimrc"
+alias tc="$EDITOR ~/.tmux.conf"
+alias gc="$EDITOR ~/.gitconfig"
 
 # server
-alias wsc="docker-compose -f nix-nakama-vs-cockroachdb-ssl.yml down -v"
-alias wsp="docker-compose -f nix-nakama-vs-postgres-ssl.yml down -v"
+alias dcd="docker-compose -f nix-nakama-vs-postgres-ssl.yml down -v"
+alias dcu="docker-compose -f nix-nakama-vs-postgres-ssl.yml up"
+alias dcr="dcd && dcu"
 
-alias ssc="docker-compose -f nix-nakama-vs-cockroachdb-ssl.yml up"
-alias ssp="docker-compose -f nix-nakama-vs-postgres-ssl.yml up"
-
-alias ss-nossl="docker-compose -f nix-nakama-vs-cockroachdb.yml up"
-alias was="wsp && ssp"
-
-# builds
-alias ba="BINGO_SERVERIP=$IP nake droid -d:local -d:debugAnalytics"
-alias banossl="BINGO_SERVERIP=$IP nake droid -d:debug -d:local -d:copyBundles -d:nossl"
-
-alias bd="nake -d:debug -d:local"
-alias bdw="nake -d:debug -d:local -d:widescreen"
-alias bdsb="nake -d:debug -d:local -d:sandbox"
-
-alias benossl="nake emscripten -d:local -d:copyBundles -d:debug -d:nossl"
-
-alias rd="$BINGO_CLIENT_HOME/build/macosx_debug_nimx/Huuuge_Bingo_Story_debug.app/Contents/MacOS/Huuuge_Bingo_Story_debug"
+# client
+alias ba="BINGO_SERVERIP=$IP nake droid -d:local"
+alias bd="nake -d:local"
+alias bdw="nake -d:local -d:widescreen"
+alias bdsb="nake -d:local -d:sandbox"
+alias be="nake emscripten -d:local -d:copyBundles -d:nossl"
+alias br="$BINGO_CLIENT_HOME/build/macosx_debug_nimx/Huuuge_Bingo_Story_debug.app/Contents/MacOS/Huuuge_Bingo_Story_debug"
