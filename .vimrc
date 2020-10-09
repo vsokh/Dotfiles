@@ -44,8 +44,16 @@ ino <M-g> <esc>:call JumpToDef()<cr>i
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Hidden characters
+set listchars=eol:$,tab:->,trail:~,extends:>,precedes:<,space:-
+set list
+
 " Sets how many lines of history VIM has to remember
 set history=500
+
+" Vertical line
+set colorcolumn=80
 
 " Enable filetype plugins
 filetype plugin on
@@ -54,7 +62,7 @@ filetype indent on
 " Set to auto read when a file is changed from the outside
 set autoread
 au FocusGained,BufEnter * checktime
-
+-
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
 nnoremap <SPACE> <Nop>
