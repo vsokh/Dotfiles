@@ -1,6 +1,6 @@
 [user]
-	name = Vitalii Sokolohorskyi
-	email = vitalii.sokologorskyi@huuugegames.com
+	name = vsokh
+	email = vsokolohorskyi@gmail.com
 [core]
 	pager = diff-so-fancy | less --tabs=4 -RFX
     editor = vim
@@ -31,5 +31,6 @@
     br = branch
     co = commit
     d = diff
-    lone = log --oneline
-    lga = log --graph --all
+    sl =  shortlog
+    lo = log --oneline
+    graph = log --graph --all --decorate --oneline
