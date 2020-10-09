@@ -77,4 +77,7 @@ git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"
 [[ ! $SHELL =~ .*zsh ]] && chsh -s $(which zsh) $USER
 
 # finish
-printf "\033[32mWe are done! Don't forget to reload your shell! \033[m"
+GREEN='\e[32m'
+RESET='\e[0m'
+
+echo -e "${GREEN}We are done! Don't forget to reload your shell!${RESET}"
