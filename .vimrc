@@ -1,6 +1,4 @@
 
-" Run fzf
-
 " Plugins
 call plug#begin('~/.vim/plugged')
 Plug 'chriskempson/base16-vim'
