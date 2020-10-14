@@ -7,8 +7,20 @@ Plug 'tpope/vim-fugitive'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'scrooloose/syntastic'
 call plug#end()
 
+
+" Setup syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_python_checkers = ['pyflakes']
 
 " Nim's jump configuration
 fun! JumpToDef()
@@ -222,6 +234,9 @@ set nobackup
 set nowb
 set noswapfile
 
+" Enable updating a buffer
+:map <F7> :checktime<CR>
+:map! <F7> <C-O>:checktime<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
