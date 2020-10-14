@@ -27,13 +27,13 @@ dotfiles=(
 pkgs=(
   curl
   zsh
-  shellcheck
   fzf
+  fd
+  exa
+  shellcheck
   tmux
   tldr
   docker
-  fd
-  exa
 )
 
 dotdir=$HOME/dotfiles
@@ -76,7 +76,7 @@ git clone https://github.com/sindresorhus/pure.git "$HOME/.zsh/pure"
 # -------- SHELL -------- #
 
 # make zsh as a default shell
-[[ ! $SHELL =~ .*zsh ]] && chsh -s "$(which zsh)" "$USER"
+[[ ! $SHELL =~ .*zsh ]] && chsh -s "$(command -v zsh)" "$USER"
 
 # finish
 GREEN='\e[32m'
