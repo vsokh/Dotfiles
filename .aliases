@@ -1,4 +1,10 @@
+#!/usr/bin/env zsh
+
 alias todo="$EDITOR ~/.todo"
+
+if command -v exa > /dev/null; then
+  alias ls=exa
+fi
 
 ## docker
 alias dme="eval $(docker-machine env default)"
