@@ -21,6 +21,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ['pyflakes']
+let g:syntastic_mode_map = {'mode':'passive', 'active_filetypes': [], 'passive_filetypes': []}
 
 " Nim's jump configuration
 fun! JumpToDef()
@@ -238,17 +239,18 @@ set noswapfile
 :map <F7> :checktime<CR>
 :map! <F7> <C-O>:checktime<CR>
 
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use spaces instead of tabs
-set expandtab
+"set expandtab
 
 " Be smart when using tabs ;)
 set smarttab
 
 " 1 tab == 4 spaces
-set shiftwidth=2
+set shiftwidth=4
 set tabstop=4
 
 " Linebreak on 500 characters
@@ -268,6 +270,8 @@ set wrap "Wrap lines
 vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
 vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 
+noremap <leader>y "*y
+noremap <leader>p "*p
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers
