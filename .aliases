@@ -47,3 +47,6 @@ alias nlw="nake -d:local -d:widescreen"
 alias nls="nake -d:local -d:sandbox"
 alias nel="nake emscripten -d:local -d:copyBundles -d:nossl"
 alias br="$BINGO_CLIENT_HOME/build/macosx_debug_nimx/Huuuge_Bingo_Story_debug.app/Contents/MacOS/Huuuge_Bingo_Story_debug"
+
+
+alias norminette="~/.norminette/norminette.rb"
