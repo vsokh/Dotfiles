@@ -12,7 +12,7 @@ alias dmc="docker-machine create -d virtualbox --virtualbox-memory 4096 default"
 
 # popular directories
 alias d="cd ~/dotfiles"
-alias pl="cd $DEV/playground"
+alias sb="cd $DEV/sandbox"
 alias h="cd $DEV/projects/huuuge"
 alias hg="cd $DEV/projects/huuuge/gamebingo"
 alias hs="cd $DEV/projects/huuuge/serverbingo"
@@ -33,7 +33,8 @@ alias tc="$EDITOR ~/.tmux.conf"
 alias gc="$EDITOR ~/.gitconfig"
 alias ac="$EDITOR ~/.aliases"
 
-alias zs="source ~/.zshrc"
+alias srcz="source ~/.zshrc"
+alias srca="source ~/.aliases"
 
 # server
 alias dcd="docker-compose -f nix-nakama-vs-postgres-ssl.yml down -v"
