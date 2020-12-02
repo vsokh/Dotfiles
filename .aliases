@@ -13,9 +13,9 @@ alias dmc="docker-machine create -d virtualbox --virtualbox-memory 4096 default"
 # popular directories
 alias d="cd ~/dotfiles"
 alias sb="cd $DEV/sandbox"
-alias h="cd $DEV/projects/huuuge"
-alias hg="cd $DEV/projects/huuuge/gamebingo"
-alias hs="cd $DEV/projects/huuuge/serverbingo"
+alias h="cd $DEV/huuuge"
+alias hg="cd $DEV/huuuge/gamebingo"
+alias hs="cd $DEV/huuuge/serverbingo"
 
 # popular programs
 alias log-nim="adb logcat -s NIM_APP"
@@ -51,3 +51,8 @@ alias br="$BINGO_CLIENT_HOME/build/macosx_debug_nimx/Huuuge_Bingo_Story_debug.ap
 
 
 alias norminette="~/.norminette/norminette.rb"
+alias exe="~/Exercism"
+alias brclear="git branch | grep -v -E \"^\*|master|stage\" | xargs git branch -D"
+
+alias texe="tmux a -t Exercism"
+alias tbin="tmux a -t Bingo"
