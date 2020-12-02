@@ -78,8 +78,13 @@ plugins=(
 
 # Load pure mode prompt
 fpath+=$HOME/.zsh/pure
-autoload -U promptinit; promptinit
+
+autoload -U compinit promptinit
+
+promptinit
 prompt pure
+
+compinit
 
 # enabled vi mode
 bindkey -v
@@ -126,11 +131,15 @@ export PATH="$HOME/.nimble/bin:$PATH"
 export PATH="/Applications/CMake.app/Contents/bin":"$PATH"
 export SDL2_ROOT=/usr/local/Cellar/sdl2/2.0.10
 
-export CLAW_ROOT=$HOME/dev/projects/huuuge/claw
-export BINGO_SERVER_HOME=$HOME/dev/projects/huuuge/serverbingo
-export BINGO_CLIENT_HOME=$HOME/dev/projects/huuuge/gamebingo
+export CLAW_ROOT=$HOME/dev/huuuge/claw
+export BINGO_SERVER_HOME=$HOME/dev/huuuge/serverbingo
+export BINGO_CLIENT_HOME=$HOME/dev/huuuge/gamebingo
+
+export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
 
 # to enable nice colors in tmux
 export TERM=xterm-256color
 
 [[ -f $HOME/.aliases ]] && source $HOME/.aliases
+
