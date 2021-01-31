@@ -22,6 +22,7 @@ dotfiles=(
   .tmux.conf
   .gitconfig
   .aliases
+  .bat.conf
 )
 
 pkgs=(
@@ -34,6 +35,8 @@ pkgs=(
   tmux
   tldr
   docker
+  delta
+  bat
 )
 
 dotdir=$HOME/dotfiles
