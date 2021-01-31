@@ -1,15 +1,26 @@
 
 " Plugins
 call plug#begin('~/.vim/plugged')
+
 Plug 'chriskempson/base16-vim'
+
+" Nim's code highlight
 Plug 'zah/nim.vim'
+
+" Git
 Plug 'tpope/vim-fugitive'
+
+" Status line
 Plug 'itchyny/lightline.vim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+
 Plug 'junegunn/fzf.vim'
+
+" Linter; static code analysis tool
 Plug 'scrooloose/syntastic'
 call plug#end()
 
+" Set path for fzf
+set rtp+=/usr/local/opt/fzf
 
 " Setup syntastic
 set statusline+=%#warningmsg#
@@ -21,7 +32,9 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ['pyflakes']
-let g:syntastic_mode_map = {'mode':'passive', 'active_filetypes': [], 'passive_filetypes': []}
+let g:syntastic_mode_map = {'mode':'active', 'active_filetypes': ['lua','cpp', 'c', 'pl', 'pm'], 'passive_filetypes': ['nim']}
+let g:syntastic_perl_checkers = ['perl']
+let g:syntastic_enable_perl_checker = 1
 
 " Nim's jump configuration
 fun! JumpToDef()
@@ -57,10 +70,15 @@ ino <M-g> <esc>:call JumpToDef()<cr>i
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" load folds
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview
 
 " Hidden characters
 set listchars=eol:$,tab:->,trail:~,extends:>,precedes:<,space:-
 set list
+
+" set shell to an interactive mode
 
 " Sets how many lines of history VIM has to remember
 set history=500
@@ -98,7 +116,6 @@ nnoremap <leader>gs  :GFiles? <cr>
 " :W sudo saves the file
 " (useful for handling the permission-denied error)
 command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
@@ -244,7 +261,7 @@ set noswapfile
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use spaces instead of tabs
-"set expandtab
+set expandtab
 
 " Be smart when using tabs ;)
 set smarttab
@@ -305,6 +322,7 @@ map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove
 map <leader>tn :tabnext<cr>
 map <leader>tp :tabprev<cr>
+map <leader>tls :tabs<cr>
 
 " Let 'tl' toggle between this and the last accessed tab
 let g:lasttab = 1
