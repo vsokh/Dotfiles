@@ -37,6 +37,7 @@ pkgs=(
   docker
   delta
   bat
+  htop
 )
 
 dotdir=$HOME/dotfiles
