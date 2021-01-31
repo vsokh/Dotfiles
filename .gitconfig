@@ -1,16 +1,28 @@
 [user]
     name = vsokh
     email = vsokolohorskyi@gmail.com
+
 [core]
-    pager = diff-so-fancy | less --tabs=4 -RFX
+    #pager = diff-so-fancy | less --tabs=4 -RFX
+    pager = delta
     editor = vim
+
+[delta]
+    features = side-by-side line-numbers decorations
+    syntax-theme = base16
+
+[interactive]
+    diffFilter = delta --color-only
+
 [color]
     ui = true
+
 [color "diff-highlight"]
     oldNormal = red bold
     oldHighlight = red bold 52
     newNormal = green bold
     newHighlight = green bold 22
+
 [color "diff"]
     meta = 11
     frag = magenta bold
@@ -18,10 +30,12 @@
     old = red bold
     new = green bold
     whitespace = red reverse
+
 [diff-so-fancy]
     markEmptyLines = false
     changeHunkIndicators = true
     rulerWidth = 80
+
 [alias]
     ch = checkout
     pl = pull
