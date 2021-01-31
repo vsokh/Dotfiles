@@ -4,11 +4,16 @@ alias todo="$EDITOR ~/.todo"
 
 if command -v exa > /dev/null; then
   alias ls=exa
+  
 fi
 
 ## docker
-alias dme="eval $(docker-machine env default)"
 alias dmc="docker-machine create -d virtualbox --virtualbox-memory 4096 default"
+alias dme='eval $(docker-machine env default)'
+alias dmcr="dmc || docker-machine restart default && dme"
+alias dcd="docker-compose -f nix-nakama-vs-postgres-ssl.yml down -v"
+alias dcu='dmc; dme; docker-compose -f nix-nakama-vs-postgres-ssl.yml up'
+alias dcr='dcd && dcu &; PID=$! && sleep 3 && kill $PID && dcu'
 
 # popular directories
 alias d="cd ~/dotfiles"
@@ -16,6 +21,7 @@ alias sb="cd $DEV/sandbox"
 alias h="cd $DEV/huuuge"
 alias hg="cd $DEV/huuuge/gamebingo"
 alias hs="cd $DEV/huuuge/serverbingo"
+alias j="cd /tmp/junk 2> /dev/null || mkdir /tmp/junk && cd /tmp/junk"
 
 # popular programs
 alias log-nim="adb logcat -s NIM_APP"
@@ -27,32 +33,30 @@ alias t="tmux"
 alias np="cd ~/.nimble/pkgs"
 alias nb="cd ~/.nimble/bin"
 
-alias zc="$EDITOR ~/.zshrc"
-alias vc="$EDITOR ~/.vimrc"
-alias tc="$EDITOR ~/.tmux.conf"
-alias gc="$EDITOR ~/.gitconfig"
-alias ac="$EDITOR ~/.aliases"
+alias vz="$EDITOR ~/.zshrc"
+alias vv="$EDITOR ~/.vimrc"
+alias vt="$EDITOR ~/.tmux.conf"
+alias vg="$EDITOR ~/.gitconfig"
+alias va="$EDITOR ~/.aliases"
 
-alias srcz="source ~/.zshrc"
-alias srca="source ~/.aliases"
-
-# server
-alias dcd="docker-compose -f nix-nakama-vs-postgres-ssl.yml down -v"
-alias dcu="docker-compose -f nix-nakama-vs-postgres-ssl.yml up"
-alias dcr="dcd && dcu"
+alias sz="source ~/.zshrc"
+alias sa="source ~/.aliases"
 
 # client
-alias ndl="BINGO_SERVERIP=$IP nake droid -d:local"
-alias nl="nake -d:local"
-alias nlw="nake -d:local -d:widescreen"
-alias nls="nake -d:local -d:sandbox"
+alias ndl='hg; BINGO_SERVERIP=$IP nake droid -d:local; cd -'
+alias nl="hg; nake -d:local; cd -"
+alias nlw="hg; nake -d:local -d:widescreen; cd -"
+alias nls="hg; nake -d:local -d:sandbox; cd -"
 alias nel="nake emscripten -d:local -d:copyBundles -d:nossl"
 alias br="$BINGO_CLIENT_HOME/build/macosx_debug_nimx/Huuuge_Bingo_Story_debug.app/Contents/MacOS/Huuuge_Bingo_Story_debug"
-
+alias upd="git ch master; git pull && git fat pull"
 
 alias norminette="~/.norminette/norminette.rb"
 alias exe="~/Exercism"
+alias cat='bat --paging=never'
 alias brclear="git branch | grep -v -E \"^\*|master|stage\" | xargs git branch -D"
 
-alias texe="tmux a -t Exercism"
-alias tbin="tmux a -t Bingo"
+alias texe="tmux a -t Exercism || tmux new-session -s Exercism && tmux a -t Exercism"
+alias tbin="tmux a -t Bingo || tmux new-session -s Bingo && tmux a -t Bingo"
+alias t42="tmux a -t 42 || tmux new-session -s 42 && tmux a -t 42"
+
