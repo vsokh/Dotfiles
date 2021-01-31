@@ -138,8 +138,18 @@ export BINGO_CLIENT_HOME=$HOME/dev/huuuge/gamebingo
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
 
+export BAT_PAGER="less -R"
+export BAT_CONFIG_PATH="$HOME/dotfiles/.bat.conf"
+
 # to enable nice colors in tmux
 export TERM=xterm-256color
 
-[[ -f $HOME/.aliases ]] && source $HOME/.aliases
+# to enalbe syntax highlighting for man pages
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+alias rg='rg -p \
+      --colors match:none --colors match:fg:black --colors match:bg:yellow \
+      --colors path:fg:green --colors path:style:bold \
+      --colors line:fg:yellow --colors line:style:intense --colors line:style:bold \
+      "$@" | less -FX'
 
+[[ -f $HOME/.aliases ]] && source $HOME/.aliases
