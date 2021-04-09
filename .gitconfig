@@ -3,16 +3,8 @@
     email = vsokolohorskyi@gmail.com
 
 [core]
-    #pager = diff-so-fancy | less --tabs=4 -RFX
-    pager = delta
+    pager = diff-so-fancy | less --tabs=4 -RFX
     editor = vim
-
-[delta]
-    features = side-by-side line-numbers decorations
-    syntax-theme = base16
-
-[interactive]
-    diffFilter = delta --color-only
 
 [color]
     ui = true
@@ -44,7 +36,9 @@
     st = status
     br = branch
     co = commit
+	s = show
     d = diff
+    ds = diff --staged
     sl =  shortlog
     lo = log --oneline
     graph = log --graph --all --decorate --oneline
