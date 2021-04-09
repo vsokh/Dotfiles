@@ -33,7 +33,7 @@ ZSH_THEME=""
 # DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -53,11 +53,7 @@ COMPLETION_WAITING_DOTS="true"
 
 source $ZSH/oh-my-zsh.sh
 
-plugins=(
-  git
-  zsh-autosuggestions 
-  zsh-syntax-highlighting
-) 
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 # User configuration
 
@@ -97,7 +93,7 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
         eval "$("$BASE16_SHELL/profile_helper.sh")"
 
 # enable preferred theme
-base16_onedark
+base16_gruvbox-dark-soft
 
 
 case $(uname) in
@@ -113,27 +109,23 @@ esac
 
 export DEV="~/dev"
 export EDITOR="vim"
+export USER=vsokolog
+export MAIL="$USER@student.42.fr"
 
-#export ANDROID_SDK_ROOT=/usr/local/share/android-sdk
 export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
 export ANDROID_SDK_HOME=$ANDROID_SDK_ROOT
 
 export PATH="$ANDROID_SDK_ROOT/platform-tools:$PATH"
 
-#export ANDROID_NDK_ROOT=/usr/local/share/android-ndk
 export ANDROID_NDK_ROOT=$HOME/Library/Android/sdk/ndk
 export ANDROID_NDK_HOME=$ANDROID_NDK_ROOT
+
 export PATH="/usr/local/opt/python@3.8/bin:$PATH"
 export LDFLAGS="-L/usr/local/opt/python@3.8/lib"
 
 export PATH="/usr/local/opt/binutils/bin:$PATH"
-export PATH="$HOME/.nimble/bin:$PATH"
 export PATH="/Applications/CMake.app/Contents/bin":"$PATH"
 export SDL2_ROOT=/usr/local/Cellar/sdl2/2.0.10
-
-export CLAW_ROOT=$HOME/dev/huuuge/claw
-export BINGO_SERVER_HOME=$HOME/dev/huuuge/serverbingo
-export BINGO_CLIENT_HOME=$HOME/dev/huuuge/gamebingo
 
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
