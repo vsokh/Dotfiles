@@ -255,7 +255,7 @@ set noswapfile
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use spaces instead of tabs
-set expandtab
+set noexpandtab
 
 " Be smart when using tabs ;)
 set smarttab
@@ -271,6 +271,8 @@ set tw=500
 set ai "Auto indent
 set si "Smart indent
 set wrap "Wrap lines
+
+set foldmethod=syntax
 
 
 """"""""""""""""""""""""""""""
@@ -381,9 +383,18 @@ fun! CleanExtraSpaces()
 endfun
 
 if has("autocmd")
-    autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
+    autocmd BufWritePre *.c,*.h,.txt,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
 endif
 
+" C mappings
+imap ;if if ()<left>
+imap ;iff if ()<cr>{<cr>}<up><up><right><right><right>
+imap ;p printf("");<left><left><left>
+imap ;r return ;<left>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Command line mappings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Spell checking
