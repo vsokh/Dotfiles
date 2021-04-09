@@ -33,18 +33,9 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_python_checkers = ['pyflakes']
-let g:syntastic_mode_map = {'mode':'active', 'active_filetypes': ['lua','cpp', 'c', 'pl', 'pm'], 'passive_filetypes': ['nim']}
+let g:syntastic_mode_map = {'mode':'active', 'active_filetypes': ['c', 'cpp', 'pl', 'pm'], 'passive_filetypes': ['c']}
 let g:syntastic_perl_checkers = ['perl']
 let g:syntastic_enable_perl_checker = 1
-
-" Nim's jump configuration
-fun! JumpToDef()
-  if exists("*GotoDefinition_" . &filetype)
-    call GotoDefinition_{&filetype}()
-  else
-    exe "norm! \<C-]>"
-  endif
-endf
 
 " Jump to tag
 nn <M-g> :call JumpToDef()<cr>
