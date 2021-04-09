@@ -138,10 +138,11 @@ export TERM=xterm-256color
 
 # to enalbe syntax highlighting for man pages
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-alias rg='rg -p \
-      --colors match:none --colors match:fg:black --colors match:bg:yellow \
-      --colors path:fg:green --colors path:style:bold \
-      --colors line:fg:yellow --colors line:style:intense --colors line:style:bold \
-      "$@" | less -FX'
 
 [[ -f $HOME/.aliases ]] && source $HOME/.aliases
+
+PATH="/Users/vsokh/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/Users/vsokh/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/Users/vsokh/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/Users/vsokh/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/vsokh/perl5"; export PERL_MM_OPT;
