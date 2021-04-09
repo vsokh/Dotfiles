@@ -4,9 +4,6 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'chriskempson/base16-vim'
 
-" Nim's code highlight
-Plug 'zah/nim.vim'
-
 " Git
 Plug 'tpope/vim-fugitive'
 
