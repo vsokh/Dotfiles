@@ -14,6 +14,10 @@ Plug 'junegunn/fzf.vim'
 
 " Linter; static code analysis tool
 Plug 'scrooloose/syntastic'
+
+" For comments
+Plug 'tpope/vim-commentary'
+
 call plug#end()
 
 " Set path for fzf
