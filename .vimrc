@@ -51,6 +51,7 @@ ino <M-g> <esc>:call JumpToDef()<cr>i
 "    -> Moving around, tabs and buffers
 "    -> Status line
 "    -> Editing mappings
+"    -> Command line mappings
 "    -> vimgrep searching and cope displaying
 "    -> Spell checking
 "    -> Misc
@@ -67,7 +68,8 @@ autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview
 
 " Hidden characters
-set listchars=eol:$,tab:->,trail:~,extends:>,precedes:<,space:-
+" set listchars=eol:$,tab:->,trail:~,extends:>,precedes:<,space:-
+set listchars=tab:\|\ ,trail:~
 set list
 
 " set shell to an interactive mode
