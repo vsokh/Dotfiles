@@ -2,7 +2,7 @@
 
 install_pkgs() {
     OS=$(uname)
-    if [ "$OS" = "Linux" ];    then pkgmanager=sudo apt
+    if   [ "$OS" = "Linux"  ]; then pkgmanager=sudo apt
     elif [ "$OS" = "Darwin" ]; then pkgmanager=brew
     else
         echo "You need to setup a pkgmanager manually for this system.";
