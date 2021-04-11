@@ -49,7 +49,7 @@ setup_shell() {
     git clone https://github.com/zsh-users/zsh-autosuggestions          \
         "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
 
-    # install pure promt --> '>'
+    # install pure promt '>'
     git clone https://github.com/sindresorhus/pure.git                  \
         "$HOME/.zsh/pure"
 
@@ -57,15 +57,15 @@ setup_shell() {
     [[ ! $SHELL =~ .*zsh ]] && chsh -s "$(command -v zsh)" "$USER"
 }
 
-greetings() {
+completion() {
     GREEN='\e[32m'
     RESET='\e[0m'
 
-    echo -e "${GREEN}We are done! Don't forget to reload your shell!${RESET}"
+    echo -e "${GREEN}We've done! Don't forget to reload your shell!${RESET}"
 }
 
 install_pkgs
 link_configs
 setup_vim
 setup_shell
-greetings
+completion
