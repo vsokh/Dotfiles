@@ -93,8 +93,7 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
         eval "$("$BASE16_SHELL/profile_helper.sh")"
 
 # enable preferred theme
-base16_gruvbox-dark-soft
-
+base16_gruvbox-dark-medium
 
 case $(uname) in
 Linux)
@@ -112,37 +111,28 @@ export EDITOR="vim"
 export USER=vsokolog
 export MAIL="$USER@student.42.fr"
 
-export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
-export ANDROID_SDK_HOME=$ANDROID_SDK_ROOT
+# export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
+# export ANDROID_SDK_HOME=$ANDROID_SDK_ROOT
 
-export PATH="$ANDROID_SDK_ROOT/platform-tools:$PATH"
+# export PATH="$ANDROID_SDK_ROOT/platform-tools:$PATH"
 
-export ANDROID_NDK_ROOT=$HOME/Library/Android/sdk/ndk
-export ANDROID_NDK_HOME=$ANDROID_NDK_ROOT
+# export ANDROID_NDK_ROOT=$HOME/Library/Android/sdk/ndk
+# export ANDROID_NDK_HOME=$ANDROID_NDK_ROOT
 
-export PATH="/usr/local/opt/python@3.8/bin:$PATH"
-export LDFLAGS="-L/usr/local/opt/python@3.8/lib"
+# export PATH="/usr/local/opt/python@3.8/bin:$PATH"
+# export LDFLAGS="-L/usr/local/opt/python@3.8/lib"
 
-export PATH="/usr/local/opt/binutils/bin:$PATH"
-export PATH="/Applications/CMake.app/Contents/bin":"$PATH"
-export SDL2_ROOT=/usr/local/Cellar/sdl2/2.0.10
+# export PATH="/usr/local/opt/binutils/bin:$PATH"
+# export PATH="/Applications/CMake.app/Contents/bin":"$PATH"
+# export SDL2_ROOT=/usr/local/Cellar/sdl2/2.0.10
 
-export PATH="/usr/local/bin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
-
-export BAT_PAGER="less -R"
-export BAT_CONFIG_PATH="$HOME/dotfiles/.bat.conf"
+# export PATH="/usr/local/bin:$PATH"
+# export PATH="/usr/local/sbin:$PATH"
+# export PATH="/usr/bin:$PATH"
 
 # to enable nice colors in tmux
 export TERM=xterm-256color
 
-# to enalbe syntax highlighting for man pages
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-
 [[ -f $HOME/.aliases ]] && source $HOME/.aliases
+[[ -f $HOME/dotfiles/cp.sh ]] && source $HOME/dotfiles/cp.sh
 
-PATH="/Users/vsokh/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/Users/vsokh/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/Users/vsokh/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/Users/vsokh/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/Users/vsokh/perl5"; export PERL_MM_OPT;
