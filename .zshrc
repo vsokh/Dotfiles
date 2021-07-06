@@ -130,8 +130,11 @@ export MAIL="$USER@student.42.fr"
 # export PATH="/usr/local/sbin:$PATH"
 # export PATH="/usr/bin:$PATH"
 
-# to enable nice colors in tmux
+# enable nice colors in tmux
 export TERM=xterm-256color
+
+# enable underscore cursor
+printf '\033[4 q'
 
 [[ -f $HOME/.aliases ]] && source $HOME/.aliases
 [[ -f $HOME/dotfiles/cp.sh ]] && source $HOME/dotfiles/cp.sh
