@@ -10,32 +10,19 @@ Plug 'tpope/vim-fugitive'
 " Status line
 Plug 'itchyny/lightline.vim'
 
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-
-" Linter; static code analysis tool
-Plug 'scrooloose/syntastic'
 
 " For comments
 Plug 'tpope/vim-commentary'
+
+" UI
+Plug 'morhetz/gruvbox'
 
 call plug#end()
 
 " Set path for fzf
 set rtp+=/usr/local/opt/fzf
-
-" Setup syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_python_checkers = ['pyflakes']
-let g:syntastic_mode_map = {'mode':'active', 'active_filetypes': ['c', 'cpp', 'pl', 'pm'], 'passive_filetypes': ['c']}
-let g:syntastic_perl_checkers = ['perl']
-let g:syntastic_enable_perl_checker = 1
 
 " Jump to tag
 nn <M-g> :call JumpToDef()<cr>
@@ -116,6 +103,9 @@ command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set 7 lines to the cursor - when moving vertically using j/k
 set so=7
+
+" Set underscore cursor
+let &t_EI="\033[4 q"
 
 " Avoid garbled characters in Chinese language windows OS
 let $LANG='en'
@@ -199,11 +189,14 @@ set foldcolumn=1
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Enable gruvbox
+autocmd vimenter * ++nested colorscheme gruvbox
+
 " Enable syntax highlighting
 syntax enable
 
 " Access colors present in 256 colorspace
-"let base16colorspace=256
+let base16colorspace=256
 
 if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
@@ -216,10 +209,10 @@ if $COLORTERM == 'gnome-terminal'
 endif
 
 try
-    colorscheme base16-onedark
+    colorscheme gruvbox
+    " colorscheme base16-onedark
 catch
 endtry
-
 
 set background=dark
 
@@ -383,7 +376,7 @@ fun! CleanExtraSpaces()
 endfun
 
 if has("autocmd")
-    autocmd BufWritePre *.c,*.h,.txt,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
+    autocmd BufWritePre *.cpp,*.hpp,*.c,*.h,.txt,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
 endif
 
 " C mappings
