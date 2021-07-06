@@ -2,17 +2,14 @@
 
 alias todo="$EDITOR .todo"
 
-if command -v exa > /dev/null; then
-  alias ls=exa
-fi
-
-## docker
+# docker
 alias dmc="docker-machine create -d virtualbox --virtualbox-memory 4096 default"
 alias dme='eval $(docker-machine env default)'
 
 # popular directories
 alias sb="cd $DEV/sandbox"
 alias prj="cd $DEV/projects"
+alias dot="cd $HOME/dotfiles"
 
 # popular programs
 alias g="git"
@@ -28,16 +25,16 @@ alias va="$EDITOR ~/.aliases"
 alias sz="source ~/.zshrc"
 alias sa="source ~/.aliases"
 
-alias cat='bat --paging=never'
-alias brclear="git branch | grep -v \"master\" | xargs git branch -D"
-
-alias exe="~/Exercism"
+# tmux
 alias texe="tmux a -t Exercism || tmux new-session -s Exercism && tmux a -t Exercism"
 
 # 42
-alias t42="tmux a -t 42 || tmux new-session -s 42 && tmux a -t 42"
 alias norminette="~/.norminette/norminette.rb"
 alias normc='USER=vsokolog MAIL="$USER@student.42.fr" norminette src/*.c'
 alias normh="norminette inc/*.h"
 alias norm="normh && normc"
 
+alias ctags="`brew --prefix`/bin/ctags"
+
+# git
+alias brclear="git branch | grep -v \"master\" | xargs git branch -D"
