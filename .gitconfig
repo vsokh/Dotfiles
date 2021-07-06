@@ -42,3 +42,5 @@
     sl =  shortlog
     lo = log --oneline
     graph = log --graph --all --decorate --oneline
+[init]
+	defaultBranch = main
