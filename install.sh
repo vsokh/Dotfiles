@@ -2,8 +2,8 @@
 
 install_pkgs() {
     OS=$(uname)
-    if   [ "$OS" = "Linux"  ]; then pkgmanager=sudo apt
-    elif [ "$OS" = "Darwin" ]; then pkgmanager=brew
+    if   [ "$OS" = "Linux"  ]; then pkgmanager="sudo apt"
+    elif [ "$OS" = "Darwin" ]; then pkgmanager="brew"
     else
         echo "You need to setup a pkgmanager manually for this system.";
         exit 1;
@@ -14,7 +14,7 @@ install_pkgs() {
     )
 
     for p in "${pkgs[@]}"; do
-      "$pkgmanager" install "$p"
+      exec "$pkgmanager install $p"
     done
 }
 
@@ -22,7 +22,7 @@ link_configs() {
     dotfiles=(
         .zshrc .zprofile .vimrc .tmux.conf .gitconfig .aliases
     )
-    dotdir=$HOME/dotfiles
+    dotdir="$HOME/dotfiles"
 
     for d in "${dotfiles[@]}"; do
       src="$dotdir/$d"; link="$HOME/$d"
@@ -44,14 +44,14 @@ setup_shell() {
         ~/.oh-my-zsh
 
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git  \
-        "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
+        $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
 
     git clone https://github.com/zsh-users/zsh-autosuggestions          \
-        "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
+        $ZSH_CUSTOM/plugins/zsh-autosuggestions
 
     # install pure promt '>'
     git clone https://github.com/sindresorhus/pure.git                  \
-        "$HOME/.zsh/pure"
+        $HOME/.zsh/pure
 
     # make zsh as a default shell
     [[ ! $SHELL =~ .*zsh ]] && chsh -s "$(command -v zsh)" "$USER"

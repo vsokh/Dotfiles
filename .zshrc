@@ -139,3 +139,4 @@ printf '\033[4 q'
 [[ -f $HOME/.aliases ]] && source $HOME/.aliases
 [[ -f $HOME/dotfiles/cp.sh ]] && source $HOME/dotfiles/cp.sh
 
+export PATH="/usr/local/sbin:$PATH"
