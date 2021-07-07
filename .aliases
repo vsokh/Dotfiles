@@ -34,7 +34,7 @@ alias normc='USER=vsokolog MAIL="$USER@student.42.fr" norminette src/*.c'
 alias normh="norminette inc/*.h"
 alias norm="normh && normc"
 
-alias ctags="`brew --prefix`/bin/ctags"
+command -v brew >/dev/null 2>&1 && { alias ctags="`brew --prefix`/bin/ctags"}
 
 # git
 alias brclear="git branch | grep -v \"master\" | xargs git branch -D"
