@@ -93,7 +93,7 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
         eval "$("$BASE16_SHELL/profile_helper.sh")"
 
 # enable preferred theme
-base16_gruvbox-dark-medium
+base16_gruvbox-dark-hard
 
 case $(uname) in
 Linux)
@@ -139,3 +139,4 @@ printf '\033[4 q'
 [[ -f $HOME/.aliases ]] && source $HOME/.aliases
 [[ -f $HOME/dotfiles/cp.sh ]] && source $HOME/dotfiles/cp.sh
 
+export PATH="/usr/local/sbin:$PATH"
