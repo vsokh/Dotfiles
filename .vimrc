@@ -19,6 +19,9 @@ Plug 'tpope/vim-commentary'
 " UI
 Plug 'morhetz/gruvbox'
 
+" File system explorer
+Plug 'preservim/nerdtree'
+
 call plug#end()
 
 " Set path for fzf
