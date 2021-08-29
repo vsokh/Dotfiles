@@ -111,25 +111,6 @@ export EDITOR="vim"
 export USER=vsokolog
 export MAIL="$USER@student.42.fr"
 
-# export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
-# export ANDROID_SDK_HOME=$ANDROID_SDK_ROOT
-
-# export PATH="$ANDROID_SDK_ROOT/platform-tools:$PATH"
-
-# export ANDROID_NDK_ROOT=$HOME/Library/Android/sdk/ndk
-# export ANDROID_NDK_HOME=$ANDROID_NDK_ROOT
-
-# export PATH="/usr/local/opt/python@3.8/bin:$PATH"
-# export LDFLAGS="-L/usr/local/opt/python@3.8/lib"
-
-# export PATH="/usr/local/opt/binutils/bin:$PATH"
-# export PATH="/Applications/CMake.app/Contents/bin":"$PATH"
-# export SDL2_ROOT=/usr/local/Cellar/sdl2/2.0.10
-
-# export PATH="/usr/local/bin:$PATH"
-# export PATH="/usr/local/sbin:$PATH"
-# export PATH="/usr/bin:$PATH"
-
 # enable nice colors in tmux
 export TERM=xterm-256color
 
@@ -137,6 +118,11 @@ export TERM=xterm-256color
 printf '\033[4 q'
 
 [[ -f $HOME/.aliases ]] && source $HOME/.aliases
-[[ -f $HOME/dotfiles/cp.sh ]] && source $HOME/dotfiles/cp.sh
+[[ -f $HOME/dotfiles/commands/cp.sh ]] && source $HOME/dotfiles/commands/cp.sh
 
 export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/opt:$PATH"
+
+# nim's package manager
+export PATH="/$HOME/.nimble/bin:$PATH"
