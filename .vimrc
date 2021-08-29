@@ -26,6 +26,10 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 
+" File system explorer
+Plug 'preservim/nerdtree'
+
+
 call plug#end()
 " }}}
 

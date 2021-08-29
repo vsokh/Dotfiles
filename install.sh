@@ -10,17 +10,17 @@ install_pkgs() {
     fi
 
     pkgs=(
-      curl zsh fzf fd shellcheck tmux tldr docker ripgrep
+      curl zsh fzf fd shellcheck tmux tldr docker ripgrep diff-so-fancy
     )
 
     for p in "${pkgs[@]}"; do
-      exec "$pkgmanager install $p"
+      brew install $p
     done
 }
 
 link_configs() {
     dotfiles=(
-        .zshrc .zprofile .vimrc .tmux.conf .gitconfig .aliases
+        .zshrc .zprofile .vimrc .tmux.conf .gitconfig .aliases .hgrc
     )
     dotdir="$HOME/dotfiles"
 
