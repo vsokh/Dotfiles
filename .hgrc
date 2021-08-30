@@ -1,12 +1,13 @@
+
 [ui]
-username = Vitalii Sokolohorskyi vitaly.sokologorskiy@collabio.team
+username = Vitaly Sokologorskiy Vitaly.Sokologorskiy@collabio.team
 
 [auth]
 xcds.prefix = http://hg.xcds.work
-xcds.username = vitaliy.sokologorskiy
+xcds.username = vitaly.sokologorskiy
 
 [pager]
-pager = less -r
+pager = diff-so-fancy | less --tabs=4 -RFX
 
 [alias]
 blame = annotate --user --number
