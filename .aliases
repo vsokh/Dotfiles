@@ -38,3 +38,8 @@ command -v brew >/dev/null 2>&1 && { alias ctags="`brew --prefix`/bin/ctags"}
 
 # git
 alias brclear="git branch | grep -v \"master\" | xargs git branch -D"
+
+
+# c++
+alias c++filt="c++filt --no-strip-underscore --types"
+

@@ -64,6 +64,8 @@ set rtp+=/usr/local/opt/fzf
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set mouse=a
+
 " load folds
 autocmd BufWinLeave *.* mkview
 autocmd BufWinEnter *.* silent loadview
