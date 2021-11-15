@@ -19,8 +19,6 @@ Plug 'tpope/vim-commentary'
 " UI
 Plug 'morhetz/gruvbox'
 
-Plug 'preservim/tagbar'
-
 " Additional text editing support
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -29,6 +27,7 @@ Plug 'jackguo380/vim-lsp-cxx-highlight'
 " File system explorer
 Plug 'preservim/nerdtree'
 
+Plug 'preservim/tagbar'
 
 call plug#end()
 " }}}
@@ -262,15 +261,12 @@ set noswapfile
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Use spaces instead of tabs
-set noexpandtab
-
 " Be smart when using tabs ;)
-set smarttab
+" set smarttab
 
-" 1 tab == 4 spaces
-set shiftwidth=4
-set tabstop=4
+" 1 tab == 4 spaces + Use spaces instead of tabs
+set tabstop=4 shiftwidth=4 expandtab
+" set noexpandtab
 
 " Linebreak on 500 characters
 set lbr
