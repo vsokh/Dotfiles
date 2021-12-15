@@ -51,13 +51,8 @@ COMPLETION_WAITING_DOTS="true"
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
-plugins=(
-	git
-	zsh-autosuggestions
-	zsh-syntax-highlighting
-)
-
 source $ZSH/oh-my-zsh.sh
+plugins=(git mercurial zsh-autosuggestions zsh-syntax-highlighting)
 
 # User configuration
 
@@ -97,7 +92,8 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
         eval "$("$BASE16_SHELL/profile_helper.sh")"
 
 # enable preferred theme
-base16_gruvbox-dark-hard
+base16_gruvbox-dark-soft
+# base16_onedark
 
 case $(uname) in
 Linux)
@@ -130,3 +126,7 @@ export PATH="/usr/local/opt:$PATH"
 
 # nim's package manager
 export PATH="/$HOME/.nimble/bin:$PATH"
+
+# brew's flex & bison
+export PATH="/usr/local/opt/flex/bin:$PATH"
+export PATH="/usr/local/opt/bison/bin:$PATH"

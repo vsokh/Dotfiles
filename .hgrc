@@ -1,6 +1,6 @@
-
 [ui]
 username = Vitaly Sokologorskiy Vitaly.Sokologorskiy@collabio.team
+merge=internal:merge
 
 [auth]
 xcds.prefix = http://hg.xcds.work
@@ -11,3 +11,13 @@ pager = diff-so-fancy | less --tabs=4 -RFX
 
 [alias]
 blame = annotate --user --number
+
+[extensions]
+color =
+progress =
+purge =
+rebase =
+histedit =
+strip =
+pager =
+# strip =

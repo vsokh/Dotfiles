@@ -2,13 +2,10 @@
 
 alias todo="$EDITOR .todo"
 
-# docker
-alias dmc="docker-machine create -d virtualbox --virtualbox-memory 4096 default"
-alias dme='eval $(docker-machine env default)'
+alias ls="exa"
 
 # popular directories
 alias sb="cd $DEV/sandbox"
-alias prj="cd $DEV/projects"
 alias dot="cd $HOME/dotfiles"
 
 # popular programs
@@ -25,21 +22,20 @@ alias va="$EDITOR ~/.aliases"
 alias sz="source ~/.zshrc"
 alias sa="source ~/.aliases"
 
-# tmux
-alias texe="tmux a -t Exercism || tmux new-session -s Exercism && tmux a -t Exercism"
-
 # 42
 alias norminette="~/.norminette/norminette.rb"
 alias normc='USER=vsokolog MAIL="$USER@student.42.fr" norminette src/*.c'
 alias normh="norminette inc/*.h"
 alias norm="normh && normc"
 
-command -v brew >/dev/null 2>&1 && { alias ctags="`brew --prefix`/bin/ctags"}
-
 # git
 alias brclear="git branch | grep -v \"master\" | xargs git branch -D"
-
 
 # c++
 alias c++filt="c++filt --no-strip-underscore --types"
 
+# CO
+alias ws="cd ~/workspace/"
+alias bd="cd ~/workspace/build/DEBUG"
+alias br="cd ~/workspace/build/RELEASE"
+alias co="cd ~/workspace/CloudOffice"

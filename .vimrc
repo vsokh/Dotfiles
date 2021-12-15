@@ -29,6 +29,8 @@ Plug 'preservim/nerdtree'
 
 Plug 'preservim/tagbar'
 
+Plug 'mhinz/vim-signify'
+
 call plug#end()
 " }}}
 
@@ -206,7 +208,7 @@ set foldcolumn=1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Enable gruvbox
-autocmd vimenter * ++nested colorscheme gruvbox
+" autocmd vimenter * ++nested colorscheme gruvbox
 
 " Enable syntax highlighting
 syntax enable
@@ -224,11 +226,10 @@ if $COLORTERM == 'gnome-terminal'
     set t_Co=256
 endif
 
-try
-    colorscheme gruvbox
-    " colorscheme base16-onedark
-catch
-endtry
+" try
+"     colorscheme material
+" catch
+" endtry
 
 set background=dark
 
