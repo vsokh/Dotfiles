@@ -119,6 +119,7 @@ printf '\033[4 q'
 
 [[ -f $HOME/.aliases ]] && source $HOME/.aliases
 [[ -f $HOME/dotfiles/commands/cp.sh ]] && source $HOME/dotfiles/commands/cp.sh
+[[ -f $HOME/dotfiles/commands/hg_utils.sh ]] && source $HOME/dotfiles/commands/hg_utils.sh
 
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/bin:$PATH"
