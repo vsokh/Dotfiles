@@ -108,7 +108,7 @@ esac
 
 export DEV="~/dev"
 export EDITOR="vim"
-export USER=vsokolog
+# export USER=vsokolog
 export MAIL="$USER@student.42.fr"
 
 # enable nice colors in tmux
@@ -120,6 +120,7 @@ printf '\033[4 q'
 [[ -f $HOME/.aliases ]] && source $HOME/.aliases
 [[ -f $HOME/dotfiles/commands/cp.sh ]] && source $HOME/dotfiles/commands/cp.sh
 [[ -f $HOME/dotfiles/commands/hg_utils.sh ]] && source $HOME/dotfiles/commands/hg_utils.sh
+[[ -f $HOME/dotfiles/commands/utils.sh ]] && source $HOME/dotfiles/commands/utils.sh
 
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/bin:$PATH"

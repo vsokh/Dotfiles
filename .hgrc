@@ -1,5 +1,5 @@
 [ui]
-username = Vitaly Sokologorskiy Vitaly.Sokologorskiy@collabio.team
+username = Vitaly Sokologorskiy <vitaly.sokologorskiy@collabio.team>
 merge=internal:merge
 
 [auth]
