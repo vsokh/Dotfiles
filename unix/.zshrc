@@ -49,11 +49,6 @@ if [[ -z "$DOTFILES" ]]; then
     [[ -d "$d/unix" ]] && { export DOTFILES="$d"; break; }
   done
 fi
-if [[ -n "$DOTFILES" && -d "$DOTFILES/unix/commands" ]]; then
-  for f in "$DOTFILES"/unix/commands/*.sh; do
-    [[ -f "$f" ]] && source "$f"
-  done
-fi
 
 # user-local bins (eg. diff-so-fancy installed by install.sh, npm globals)
 export PATH="$HOME/.local/bin:$PATH"
