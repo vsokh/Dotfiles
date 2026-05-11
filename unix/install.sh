@@ -41,6 +41,11 @@ install_pkgs() {
                 warn "Homebrew not found; install from https://brew.sh first"
                 return
             fi
+            # Remove deprecated tldr before installing its replacement (tlrc).
+            if brew list --formula tldr >/dev/null 2>&1; then
+                brew uninstall tldr
+                ok "uninstalled deprecated tldr"
+            fi
             for p in curl zsh fzf fd shellcheck tmux tlrc ripgrep git-delta git neovim eza zoxide; do
                 if brew list --formula "$p" >/dev/null 2>&1; then
                     skip "$p already installed"
