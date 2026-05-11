@@ -51,8 +51,9 @@ COMPLETION_WAITING_DOTS="true"
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
-source $ZSH/oh-my-zsh.sh
+# plugins MUST be set before sourcing oh-my-zsh.sh — it reads the array during source.
 plugins=(git mercurial zsh-autosuggestions zsh-syntax-highlighting)
+source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
@@ -83,7 +84,7 @@ compinit
 
 # enabled vi mode
 bindkey -v
-bindkey "^I " autosuggest-accept
+bindkey "^I" autosuggest-accept
 
 # apply shell's theme to vim
 BASE16_SHELL="$HOME/.config/base16-shell/"

@@ -1,0 +1,7 @@
+# Default: treat everything as text, normalize to LF in the working tree.
+* text=auto eol=lf
+
+# Windows-native scripts must be CRLF for some interpreters / Notepad.
+*.ps1 text eol=crlf
+*.cmd text eol=crlf
+*.bat text eol=crlf
