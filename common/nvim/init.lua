@@ -128,8 +128,10 @@ vim.lsp.config('rust_analyzer', {
     },
 })
 
+-- npm globals are shimmed as `<name>.cmd` on Windows; the bare name works elsewhere.
+local exe_suffix = (vim.fn.has('win32') == 1) and '.cmd' or ''
 vim.lsp.config('ts_ls', {
-    cmd = { 'typescript-language-server.cmd', '--stdio' },
+    cmd = { 'typescript-language-server' .. exe_suffix, '--stdio' },
     filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
     root_markers = { 'tsconfig.json', 'jsconfig.json', 'package.json', '.git' },
 })

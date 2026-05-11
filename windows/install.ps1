@@ -144,10 +144,13 @@ function Deploy-File($src, $dst) {
     Ok "deployed $dst"
 }
 
+# PowerShell profile lives in this dir; nvim init lives in the cross-platform common/.
+$repoRoot = Split-Path -Parent $here
+
 Deploy-File "$here\Microsoft.PowerShell_profile.ps1" `
             "$HOME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1"
 
-Deploy-File "$here\nvim\init.lua" `
+Deploy-File "$repoRoot\common\nvim\init.lua" `
             "$env:LOCALAPPDATA\nvim\init.lua"
 
 # ---------------------------------------------------------------------------

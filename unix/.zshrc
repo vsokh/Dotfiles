@@ -119,9 +119,19 @@ export TERM=xterm-256color
 printf '\033[4 q'
 
 [[ -f $HOME/.aliases ]] && source $HOME/.aliases
-[[ -f $HOME/dotfiles/commands/cp.sh ]] && source $HOME/dotfiles/commands/cp.sh
-[[ -f $HOME/dotfiles/commands/hg_utils.sh ]] && source $HOME/dotfiles/commands/hg_utils.sh
-[[ -f $HOME/dotfiles/commands/utils.sh ]] && source $HOME/dotfiles/commands/utils.sh
+
+# DOTFILES points at the local clone of vsokh/Dotfiles; install.sh exports it.
+# Fall back to common clone locations so a manual clone still works.
+if [[ -z "$DOTFILES" ]]; then
+  for d in "$HOME/dotfiles" "$HOME/Projects/Dotfiles" "$HOME/.dotfiles"; do
+    [[ -d "$d/unix" ]] && { export DOTFILES="$d"; break; }
+  done
+fi
+if [[ -n "$DOTFILES" && -d "$DOTFILES/unix/commands" ]]; then
+  for f in "$DOTFILES"/unix/commands/*.sh; do
+    [[ -f "$f" ]] && source "$f"
+  done
+fi
 
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/bin:$PATH"

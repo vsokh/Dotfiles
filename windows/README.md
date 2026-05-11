@@ -8,8 +8,11 @@ auto-popups). LSP for go-to-definition + hover docs only.
 | File | Goes to |
 |---|---|
 | `Microsoft.PowerShell_profile.ps1` | `$HOME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1` |
-| `nvim\init.lua` | `$env:LOCALAPPDATA\nvim\init.lua` |
+| `..\common\nvim\init.lua` | `$env:LOCALAPPDATA\nvim\init.lua` |
 | `install.ps1` | runs locally |
+
+The Neovim config is shared with Linux/macOS — it lives in `..\common\nvim\`
+at the repo root.
 
 ## Fresh-machine bootstrap
 
