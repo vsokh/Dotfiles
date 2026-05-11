@@ -34,6 +34,7 @@ base16_gruvbox-dark-soft
 export DEV="$HOME/dev"
 export EDITOR="nvim"
 export TERM=xterm-256color
+export HOMEBREW_NO_INSTALL_CLEANUP=1
 
 # underscore cursor in command-line
 printf '\033[4 q'

@@ -41,6 +41,7 @@ install_pkgs() {
                 warn "Homebrew not found; install from https://brew.sh first"
                 return
             fi
+            export HOMEBREW_NO_INSTALL_CLEANUP=1
             # Remove deprecated tldr before installing its replacement (tlrc).
             if brew list --formula tldr >/dev/null 2>&1; then
                 brew uninstall tldr
