@@ -22,12 +22,12 @@ install_pkgs() {
         Linux)
             if ! command -v apt-get >/dev/null; then
                 warn "apt-get not found; install these manually:"
-                warn "  curl zsh fzf fd-find shellcheck tmux tldr ripgrep neovim git-delta"
+                warn "  curl zsh fzf fd-find shellcheck tmux tlrc ripgrep neovim git-delta"
                 return
             fi
             sudo apt-get update -y
             sudo apt-get install -y \
-                curl zsh fzf fd-find shellcheck tmux tldr ripgrep neovim git \
+                curl zsh fzf fd-find shellcheck tmux tlrc ripgrep neovim git \
                 git-delta build-essential
             # On Debian/Ubuntu fd ships as 'fdfind'. Symlink so scripts using 'fd' work.
             if ! command -v fd >/dev/null && command -v fdfind >/dev/null; then
@@ -41,7 +41,7 @@ install_pkgs() {
                 warn "Homebrew not found; install from https://brew.sh first"
                 return
             fi
-            for p in curl zsh fzf fd shellcheck tmux tldr ripgrep git-delta git neovim eza zoxide; do
+            for p in curl zsh fzf fd shellcheck tmux tlrc ripgrep git-delta git neovim eza zoxide; do
                 if brew list --formula "$p" >/dev/null 2>&1; then
                     skip "$p already installed"
                 else
