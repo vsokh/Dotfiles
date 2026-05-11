@@ -22,26 +22,18 @@ install_pkgs() {
         Linux)
             if ! command -v apt-get >/dev/null; then
                 warn "apt-get not found; install these manually:"
-                warn "  curl zsh fzf fd-find shellcheck tmux tldr ripgrep neovim git"
+                warn "  curl zsh fzf fd-find shellcheck tmux tldr ripgrep neovim git-delta"
                 return
             fi
             sudo apt-get update -y
             sudo apt-get install -y \
                 curl zsh fzf fd-find shellcheck tmux tldr ripgrep neovim git \
-                build-essential
-            # On Debian/Ubuntu, fd ships as 'fdfind'. Symlink so scripts using 'fd' work.
+                git-delta build-essential
+            # On Debian/Ubuntu fd ships as 'fdfind'. Symlink so scripts using 'fd' work.
             if ! command -v fd >/dev/null && command -v fdfind >/dev/null; then
                 mkdir -p "$HOME/.local/bin"
                 ln -sf "$(command -v fdfind)" "$HOME/.local/bin/fd"
                 ok "linked fdfind -> ~/.local/bin/fd"
-            fi
-            # diff-so-fancy: standalone perl script (not in apt).
-            if ! command -v diff-so-fancy >/dev/null; then
-                mkdir -p "$HOME/.local/bin"
-                curl -fsSL https://raw.githubusercontent.com/so-fancy/diff-so-fancy/master/diff-so-fancy \
-                    -o "$HOME/.local/bin/diff-so-fancy"
-                chmod +x "$HOME/.local/bin/diff-so-fancy"
-                ok "installed diff-so-fancy to ~/.local/bin"
             fi
             ;;
         Darwin)
@@ -49,7 +41,7 @@ install_pkgs() {
                 warn "Homebrew not found; install from https://brew.sh first"
                 return
             fi
-            for p in curl zsh fzf fd shellcheck tmux tldr ripgrep diff-so-fancy git neovim; do
+            for p in curl zsh fzf fd shellcheck tmux tldr ripgrep git-delta git neovim eza zoxide; do
                 if brew list --formula "$p" >/dev/null 2>&1; then
                     skip "$p already installed"
                 else
@@ -88,38 +80,18 @@ symlink() {
 link_configs() {
     log "Linking dotfiles into \$HOME"
 
-    # Unix-only configs (shells, legacy vim, aliases).
+    # Unix-only configs.
     symlink "$DOTDIR/.zshrc"    "$HOME/.zshrc"
     symlink "$DOTDIR/.zprofile" "$HOME/.zprofile"
-    symlink "$DOTDIR/.vimrc"    "$HOME/.vimrc"
     symlink "$DOTDIR/.aliases"  "$HOME/.aliases"
 
     # Cross-platform configs.
     symlink "$COMMON/.tmux.conf" "$HOME/.tmux.conf"
     symlink "$COMMON/.gitconfig" "$HOME/.gitconfig"
-    symlink "$COMMON/.hgrc"      "$HOME/.hgrc"
-
-    # Neovim config (XDG path).
     symlink "$COMMON/nvim/init.lua" "$HOME/.config/nvim/init.lua"
 
-    # Legacy compat: zshrc fallback checks for $HOME/dotfiles — point it at the repo.
+    # zshrc DOTFILES discovery looks at $HOME/dotfiles — point it at the repo.
     symlink "$REPO" "$HOME/dotfiles"
-}
-
-# ---------------------------------------------------------------------------
-setup_vim() {
-    log "Setting up vim-plug + plugins (legacy .vimrc)"
-    local plug="$HOME/.vim/autoload/plug.vim"
-    if [[ -f "$plug" ]]; then
-        skip "vim-plug already installed"
-    else
-        curl -fsSLo "$plug" --create-dirs \
-            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-        ok "vim-plug installed"
-    fi
-    if command -v vim >/dev/null; then
-        vim +'PlugInstall --sync' +qa || warn "vim PlugInstall failed; run it manually"
-    fi
 }
 
 # ---------------------------------------------------------------------------
@@ -172,11 +144,11 @@ clone_if_missing() {
 
 setup_shell() {
     log "Installing oh-my-zsh, plugins, base16-shell, pure prompt"
-    clone_if_missing https://github.com/ohmyzsh/ohmyzsh.git                       "$HOME/.oh-my-zsh"
-    clone_if_missing https://github.com/chriskempson/base16-shell.git             "$HOME/.config/base16-shell"
-    clone_if_missing https://github.com/zsh-users/zsh-syntax-highlighting.git     "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
-    clone_if_missing https://github.com/zsh-users/zsh-autosuggestions             "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
-    clone_if_missing https://github.com/sindresorhus/pure.git                     "$HOME/.zsh/pure"
+    clone_if_missing https://github.com/ohmyzsh/ohmyzsh.git                   "$HOME/.oh-my-zsh"
+    clone_if_missing https://github.com/chriskempson/base16-shell.git         "$HOME/.config/base16-shell"
+    clone_if_missing https://github.com/zsh-users/zsh-syntax-highlighting.git "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
+    clone_if_missing https://github.com/zsh-users/zsh-autosuggestions         "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
+    clone_if_missing https://github.com/sindresorhus/pure.git                 "$HOME/.zsh/pure"
 
     # Make zsh the default shell if it isn't already.
     local zsh_path
@@ -205,7 +177,6 @@ completion() {
 
 install_pkgs
 link_configs
-setup_vim
 setup_nvim
 setup_shell
 completion

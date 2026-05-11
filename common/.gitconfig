@@ -3,30 +3,26 @@
     email = vsokolohorskyi@gmail.com
 
 [core]
-    pager = diff-so-fancy | less --tabs=4 -RFX
-    editor = vim
+    pager = delta
+    editor = nvim
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true
+    side-by-side = false
+    line-numbers = true
+    syntax-theme = base16
+
+[merge]
+    conflictstyle = zdiff3
+
+[diff]
+    colorMoved = default
 
 [color]
     ui = true
-
-[color "diff-highlight"]
-    oldNormal = red bold
-    oldHighlight = red bold 52
-    newNormal = green bold
-    newHighlight = green bold 22
-
-[color "diff"]
-    meta = 11
-    frag = magenta bold
-    commit = yellow bold
-    old = red bold
-    new = green bold
-    whitespace = red reverse
-
-[diff-so-fancy]
-    markEmptyLines = false
-    changeHunkIndicators = true
-    rulerWidth = 80
 
 [alias]
     ch = checkout
@@ -36,15 +32,15 @@
     st = status
     br = branch
     co = commit
-	s = show
-    d = diff
+    s  = show
+    d  = diff
     ds = diff --staged
-    sl =  shortlog
+    sl = shortlog
     lo = log --oneline
     graph = log --graph --all --decorate --oneline
 
 [init]
-	defaultBranch = main
+    defaultBranch = main
 
 [url "git@github.com:"]
     insteadOf = https://github.com/

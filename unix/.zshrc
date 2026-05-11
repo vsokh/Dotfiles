@@ -1,88 +1,24 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Path to your oh-my-zsh installation.
+# Path to oh-my-zsh.
 export ZSH="$HOME/.oh-my-zsh"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+# Theme is set below via `prompt pure`.
 ZSH_THEME=""
 
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS=true
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
+# Display red dots while waiting for completion.
 COMPLETION_WAITING_DOTS="true"
 
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
 # plugins MUST be set before sourcing oh-my-zsh.sh — it reads the array during source.
-plugins=(git mercurial zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Load pure mode prompt
+# pure prompt
 fpath+=$HOME/.zsh/pure
-
 autoload -U compinit promptinit
-
 promptinit
 prompt pure
-
 compinit
 
-# enabled vi mode
+# vi mode + Tab to accept history suggestion
 bindkey -v
 bindkey "^I" autosuggest-accept
 
@@ -94,34 +30,19 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 
 # enable preferred theme
 base16_gruvbox-dark-soft
-# base16_onedark
 
-case $(uname) in
-Linux)
-  export IP=""
-  ;;
-Darwin)
-  export IP=`ipconfig getifaddr en0`
-  ;;
-*)
-  ;;
-esac
-
-export DEV="~/dev"
-export EDITOR="vim"
-# export USER=vsokolog
-export MAIL="$USER@student.42.fr"
-
-# enable nice colors in tmux
+export DEV="$HOME/dev"
+export EDITOR="nvim"
 export TERM=xterm-256color
 
-# enable underscore cursor
+# underscore cursor in command-line
 printf '\033[4 q'
 
 [[ -f $HOME/.aliases ]] && source $HOME/.aliases
 
-# DOTFILES points at the local clone of vsokh/Dotfiles; install.sh exports it.
-# Fall back to common clone locations so a manual clone still works.
+# DOTFILES points at the local clone of vsokh/Dotfiles; install.sh exports it via
+# the ~/dotfiles symlink. Fall back to common clone locations so a manual clone
+# still works.
 if [[ -z "$DOTFILES" ]]; then
   for d in "$HOME/dotfiles" "$HOME/Projects/Dotfiles" "$HOME/.dotfiles"; do
     [[ -d "$d/unix" ]] && { export DOTFILES="$d"; break; }
@@ -133,13 +54,5 @@ if [[ -n "$DOTFILES" && -d "$DOTFILES/unix/commands" ]]; then
   done
 fi
 
-export PATH="/usr/local/sbin:$PATH"
-export PATH="/usr/local/bin:$PATH"
-export PATH="/usr/local/opt:$PATH"
-
-# nim's package manager
-export PATH="/$HOME/.nimble/bin:$PATH"
-
-# brew's flex & bison
-export PATH="/usr/local/opt/flex/bin:$PATH"
-export PATH="/usr/local/opt/bison/bin:$PATH"
+# user-local bins (eg. diff-so-fancy installed by install.sh, npm globals)
+export PATH="$HOME/.local/bin:$PATH"

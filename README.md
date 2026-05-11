@@ -4,7 +4,7 @@ Personal configs for daily work. Three platforms, one tree.
 
 ```
 common/         # cross-platform configs (gitconfig, tmux, nvim)
-unix/           # Linux + macOS: zsh, aliases, legacy vim, install.sh
+unix/           # Linux + macOS: zsh, aliases, install.sh, helper commands
 windows/        # PowerShell profile, install.ps1
 ```
 
