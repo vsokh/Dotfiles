@@ -54,6 +54,7 @@ local opts = { silent = true }
 -- saving / search clear
 map('n', '<leader>w', ':w!<cr>', opts)
 map('n', '<leader><cr>', ':noh<cr>', opts)
+map('n', '<Esc>', ':noh<cr><Esc>', opts)
 
 -- window navigation (matches your <C-h/j/k/l>)
 map('n', '<C-h>', '<C-w>h', opts)
