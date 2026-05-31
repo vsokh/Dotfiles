@@ -153,6 +153,14 @@ Deploy-File "$here\Microsoft.PowerShell_profile.ps1" `
 Deploy-File "$repoRoot\common\nvim\init.lua" `
             "$env:LOCALAPPDATA\nvim\init.lua"
 
+# Windows Terminal (stable Store build) — only deploy if it's installed.
+$wtState = "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState"
+if (Test-Path $wtState) {
+    Deploy-File "$here\windows-terminal-settings.json" "$wtState\settings.json"
+} else {
+    Note 'Windows Terminal (stable) not found; skipping settings.json'
+}
+
 # ---------------------------------------------------------------------------
 H1 'Bootstrap Neovim plugins + treesitter parsers'
 # ---------------------------------------------------------------------------

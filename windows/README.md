@@ -8,8 +8,22 @@ auto-popups). LSP for go-to-definition + hover docs only.
 | File | Goes to |
 |---|---|
 | `Microsoft.PowerShell_profile.ps1` | `$HOME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1` |
+| `windows-terminal-settings.json` | `…\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json` |
 | `..\common\nvim\init.lua` | `$env:LOCALAPPDATA\nvim\init.lua` |
 | `install.ps1` | runs locally |
+
+### Windows Terminal pane navigation
+
+`Ctrl+Shift+h/j/k/l` moves focus left/down/up/right between split panes
+(vim-style). Chosen over plain `Ctrl+hjkl` on purpose: Terminal grabs keybindings
+*before* the running app, and `Ctrl+hjkl` is already nvim's window-navigation
+(`common/nvim/init.lua`), so the `Shift` keeps the two from colliding. The
+default `Alt+arrows` still work too.
+
+Note: Windows Terminal rewrites `settings.json` whenever you change something in
+its GUI, so the live file can drift from the repo copy. After tweaking settings
+in the UI, copy it back:
+`Copy-Item "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json" .\windows-terminal-settings.json`
 
 The Neovim config is shared with Linux/macOS — it lives in `..\common\nvim\`
 at the repo root.
