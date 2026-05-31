@@ -1,0 +1,55 @@
+# Windows variant of ../common/.gitconfig.
+# Identical to common, MINUS the [url] git@github.com: SSH rewrite — this box
+# authenticates to GitHub over gh-managed HTTPS, so forcing SSH would break
+# pushes. Keep [user]/[alias]/[delta] in sync with common/.gitconfig on edits.
+
+[user]
+    name = vsokh
+    email = vsokolohorskyi@gmail.com
+
+[core]
+    pager = delta
+    editor = nvim
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true
+    side-by-side = false
+    line-numbers = true
+    syntax-theme = base16
+
+[merge]
+    conflictstyle = zdiff3
+
+[diff]
+    colorMoved = default
+
+[color]
+    ui = true
+
+[alias]
+    ch = checkout
+    pl = pull
+    ph = push
+    me = merge
+    st = status
+    br = branch
+    co = commit
+    s  = show
+    d  = diff
+    ds = diff --staged
+    sl = shortlog
+    lo = log --oneline
+    graph = log --graph --all --decorate --oneline
+
+[init]
+    defaultBranch = main
+
+# git-lfs filter (generic; harmless even if git-lfs isn't installed).
+[filter "lfs"]
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true

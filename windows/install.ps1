@@ -150,6 +150,10 @@ $repoRoot = Split-Path -Parent $here
 Deploy-File "$here\Microsoft.PowerShell_profile.ps1" `
             "$HOME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1"
 
+# Git config — Windows HTTPS variant (windows/gitconfig = common minus SSH url-rewrite).
+Deploy-File "$here\gitconfig" `
+            "$HOME\.gitconfig"
+
 Deploy-File "$repoRoot\common\nvim\init.lua" `
             "$env:LOCALAPPDATA\nvim\init.lua"
 

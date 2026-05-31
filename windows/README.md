@@ -9,8 +9,15 @@ auto-popups). LSP for go-to-definition + hover docs only.
 |---|---|
 | `Microsoft.PowerShell_profile.ps1` | `$HOME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1` |
 | `windows-terminal-settings.json` | `…\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json` |
+| `gitconfig` | `$HOME\.gitconfig` |
 | `..\common\nvim\init.lua` | `$env:LOCALAPPDATA\nvim\init.lua` |
 | `install.ps1` | runs locally |
+
+> **`gitconfig` is the Windows variant of `../common/.gitconfig`** — identical
+> apart from dropping the `[url]` rewrite that forces GitHub over SSH. This box
+> authenticates over `gh`-managed HTTPS, so that rewrite would break pushes.
+> Keep aliases/identity in sync with `common/.gitconfig` when you edit them
+> (small file, changes rarely).
 
 ### Windows Terminal pane navigation
 
